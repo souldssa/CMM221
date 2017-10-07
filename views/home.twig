@@ -1,68 +1,36 @@
-<!DOCTYPE html>
-<html lang="en">
-<!-- lang="en"
-คือการกำหนดภาษาหลักให้กับเว็ปไซต์ -->
-<head>
-	<meta charset="UTF-8">
-	<title>CMM 19</title>
-	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.5.3/css/bulma.min.css">
+{% extends 'layout/base.twig' %}
+
+{% block stylesheet %}
 	<link rel="stylesheet" href="/assets/home.css">
-</head>
-<body>
-	<header>
-		<div class="has-text-centered">
-			<img src="/assets/images/logo.png" alt="" width="145"
-			height="auto">
-		</div>
-		<nav class="navbar-tabs">
-			<a href="#" class="navbar-item">WORK</a>
-			<a href="#" class="navbar-item">INTERVIEW</a>
-			<a href="#" class="navbar-item">WORK</a>
-			<a href="#" class="navbar-item">WORK</a>
-			<a href="#" class="navbar-item">WORK</a>
-			<a href="#" class="navbar-item">WORK</a>
-			<a href="#" class="navbar-item">WORK</a>
-			<a href="#" class="navbar-item">WORK</a>
-			</nav>
-	</header>
+{% endblock %}
+
+{% block content %}
 	<main>
+		<!--ถือเนื้อหาของเว็บไซต์-->
 		<section class="banner">
 			<div class="highlight">
 				<div class="columns">
-					<div class="column highlight-item">
+					<div class="column highlight-item" style="background-image: url({{ highlight.url }});">
 					<!--ปกติต้องใส่ไซส์แต่ตัว Bulmaจะคำนวนให้ว่าควรใช้คอลัมเท่าไหร่ แต่ถ้าอยากได้ไม่เท่ากันให้ใส่ตัวเลขเอง-->
-					<div class="has-text-centered">	
-						<h1>Hello<h1>
-					</div>
+						<h1>{{ highlight.title }}</h1>
 					</div>
 				</div>
 			</div>
+				
 			<div class="thumbnail">
-				<div class="columns is-marginless">
-					<div class="column thumbnail-item is-paddingless"
-					style="background-image: url(/assets/images/home/banner/thumbnail-1.jpg);">
-					lorem ipsum dolor sit amet.
+				<div class="columns is-marginless"><!--ใส่เพื่อให้ขอบไม่ติดลบ-->
+					{% for item in thumbnail %}
+						<div class="column thumbnail-item is-paddingless" style ="background-image: url(/assets/images/home/banner/thumbnail-1.jpg);">
+							{{ item.title }}
+						{% endfor %}
 					</div>
-
-					<div class="column thumbnail-item is-paddingless"
-					style="background-image: url(/assets/images/home/banner/thumbnail-2.jpg);">
-					lorem ipsum dolor sit amet.
-					</div>
-
-					<div class="column thumbnail-item is-paddingless"
-					style="background-image: url(/assets/images/home/banner/thumbnail-3.jpg);">
-					lorem ipsum dolor sit amet.
-					</div>
-
-					<div class="column thumbnail-item is-paddingless"
-					style="background-image: url(/assets/images/home/banner/thumbnail-4.jpg);">
-					lorem ipsum dolor sit amet.
-					</div>
-
+					<!--ใส่ is-paddingless เพื่อทำให้ช่องว่างระหว่างรูปหายไป-->
+					
 				</div>
 			</div>
 		</section>
-		<secction class="secction we-present">
+
+		<section class="section we-present">
 			<div class="container">
 				<div class="columns">
 					<div class="column has-text-left">
@@ -72,137 +40,139 @@
 						WE PRESENT
 					</div>
 					<div class="column has-text-right">
-						<a href="#">SEARCH</a>	
+						<a href="#">SEARCH</a>
 					</div>
 				</div>
-			<div class="columns is-multiline">
-				<a href="#" class="column is-one-third">
-					<div class="card">
-						<div class="card-image">
-							<figure class="image is-3by2">
-								<img src="assets/images/home/we-preset/img-1.jpg" alt="image-1">
-							</figure>
+
+				<div class="columns is-multiline">
+					<a href="#" class="column is-one-third"><!--is-one-third คือ 1 ใน 3-->
+						<div class="card">
+							<div class="card-image">
+								<figure class="image is-3by2">
+									<img src="assets/images/home/we-preset/img-1.jpg" alt="image-1">
+								</figure>
+							</div>
+							<div class="card-content">
+								<h5 class="category">Public Space</h5>
+								<h3 class="title ia-spaced is-4">
+									Lorem
+								</h3>
+								<h4 class="subtitle is-6">
+									เรื่อง
+								</h4>
+								<p>
+									KFC น่ากินจัง
+								</p>
+							</div>
 						</div>
-						<div class="card-content">
-							<h5 class="category">>Public Space</h5>
-							<h3 class="title is-spaced is-4">
-								Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-							</h3>
-							<h4 class="subtitle is-6">
-								ขอบคุณเรื่องราว
-							</h4>
-							<p>
-								อิอิ อุอุ ฮ่าๆ บ้าไปล้าววววววว
-							</p>
+					</a> 
+					<a href="#" class="column is-one-third"><!--is-one-third คือ 1 ใน 3-->
+						<div class="card">
+							<div class="card-image">
+								<figure class="image is-3by2">
+									<img src="assets/images/home/we-preset/img-2.jpg" alt="image-2">
+								</figure>
+							</div>
+							<div class="card-content">
+								<h5 class="category">Public Space</h5>
+								<h3 class="title ia-spaced is-4">
+									Lorem
+								</h3>
+								<h4 class="subtitle is-6">
+									เรื่อง
+								</h4>
+								<p>
+									KFC น่ากินจัง
+								</p>
+							</div>
 						</div>
-					</div>
-				</a>
-				<a href="#" class="column is-one-third">
-					<div class="card">
-						<div class="card-image">
-							<figure class="image is-3by2">
-								<img src="assets/images/home/we-preset/img-2.jpg" alt="image-1">
-							</figure>
+					</a> 
+					<a href="#" class="column is-one-third"><!--is-one-third คือ 1 ใน 3-->
+						<div class="card">
+							<div class="card-image">
+								<figure class="image is-3by2">
+									<img src="assets/images/home/we-preset/img-3.jpg" alt="image-3">
+								</figure>
+							</div>
+							<div class="card-content">
+								<h5 class="category">Public Space</h5>
+								<h3 class="title ia-spaced is-4">
+									Lorem
+								</h3>
+								<h4 class="subtitle is-6">
+									เรื่อง
+								</h4>
+								<p>
+									KFC น่ากินจัง
+								</p>
+							</div>
 						</div>
-						<div class="card-content">
-							<h5 class="category">>Public Space</h5>
-							<h3 class="title is-spaced is-4">
-								Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-							</h3>
-							<h4 class="subtitle is-6">
-								ขอบคุณเรื่องราว
-							</h4>
-							<p>
-								อิอิ อุอุ ฮ่าๆ บ้าไปล้าววววววว
-							</p>
+					</a> 
+					<a href="#" class="column is-one-third"><!--is-one-third คือ 1 ใน 3-->
+						<div class="card">
+							<div class="card-image">
+								<figure class="image is-3by2">
+									<img src="assets/images/home/we-preset/img-4.jpg" alt="image-4">
+								</figure>
+							</div>
+							<div class="card-content">
+								<h5 class="category">Public Space</h5>
+								<h3 class="title ia-spaced is-4">
+									Lorem
+								</h3>
+								<h4 class="subtitle is-6">
+									เรื่อง
+								</h4>
+								<p>
+									KFC น่ากินจัง
+								</p>
+							</div>
 						</div>
-					</div>
-				</a>
-				<a href="#" class="column is-one-third">
-					<div class="card">
-						<div class="card-image">
-							<figure class="image is-3by2">
-								<img src="assets/images/home/we-preset/img-3.jpg" alt="image-1">
-							</figure>
+					</a> 
+					<a href="#" class="column is-one-third"><!--is-one-third คือ 1 ใน 3-->
+						<div class="card">
+							<div class="card-image">
+								<figure class="image is-3by2">
+									<img src="assets/images/home/we-preset/img-5.jpg" alt="image-5">
+								</figure>
+							</div>
+							<div class="card-content">
+								<h5 class="category">Public Space</h5>
+								<h3 class="title ia-spaced is-4">
+									Lorem
+								</h3>
+								<h4 class="subtitle is-6">
+									เรื่อง
+								</h4>
+								<p>
+									KFC น่ากินจัง
+								</p>
+							</div>
 						</div>
-						<div class="card-content">
-							<h5 class="category">>Public Space</h5>
-							<h3 class="title is-spaced is-4">
-								Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-							</h3>
-							<h4 class="subtitle is-6">
-								ขอบคุณเรื่องราว
-							</h4>
-							<p>
-								อิอิ อุอุ ฮ่าๆ บ้าไปล้าววววววว
-							</p>
+					</a> 
+					<a href="#" class="column is-one-third"><!--is-one-third คือ 1 ใน 3-->
+						<div class="card">
+							<div class="card-image">
+								<figure class="image is-3by2">
+									<img src="assets/images/home/we-preset/img-6.jpg" alt="image-6">
+								</figure>
+							</div>
+							<div class="card-content">
+								<h5 class="category">Public Space</h5>
+								<h3 class="title ia-spaced is-4">
+									Lorem
+								</h3>
+								<h4 class="subtitle is-6">
+									เรื่อง
+								</h4>
+								<p>
+									KFC น่ากินจัง
+								</p>
+							</div>
 						</div>
-					</div>
-				</a>
-				<a href="#" class="column is-one-third">
-					<div class="card">
-						<div class="card-image">
-							<figure class="image is-3by2">
-								<img src="assets/images/home/we-preset/img-4.jpg" alt="image-1">
-							</figure>
-						</div>
-						<div class="card-content">
-							<h5 class="category">>Public Space</h5>
-							<h3 class="title is-spaced is-4">
-								Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-							</h3>
-							<h4 class="subtitle is-6">
-								ขอบคุณเรื่องราว
-							</h4>
-							<p>
-								อิอิ อุอุ ฮ่าๆ บ้าไปล้าววววววว
-							</p>
-						</div>
-					</div>
-				</a>
-				<a href="#" class="column is-one-third">
-					<div class="card">
-						<div class="card-image">
-							<figure class="image is-3by2">
-								<img src="assets/images/home/we-preset/img-5.jpg" alt="image-1">
-							</figure>
-						</div>
-						<div class="card-content">
-							<h5 class="category">>Public Space</h5>
-							<h3 class="title is-spaced is-4">
-								Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-							</h3>
-							<h4 class="subtitle is-6">
-								ขอบคุณเรื่องราว
-							</h4>
-							<p>
-								อิอิ อุอุ ฮ่าๆ บ้าไปล้าววววววว
-							</p>
-						</div>
-					</div> 
-				</a>
-				<a href="#" class="column is-one-third">
-					<div class="card">
-						<div class="card-image">
-							<figure class="image is-3by2">
-								<img src="assets/images/home/we-preset/img-6.jpg" alt="image-1">
-							</figure>
-						</div>
-						<div class="card-content">
-							<h5 class="category">>Public Space</h5>
-							<h3 class="title is-spaced is-4">
-								Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-							</h3>
-							<h4 class="subtitle is-6">
-								ขอบคุณเรื่องราว
-							</h4>
-							<p>
-								อิอิ อุอุ ฮ่าๆ บ้าไปล้าววววววว
-							</p>
-						</div>
-					</div>
-				</a>
-		</section>	
+					</a> 
+				</div>
+			</div>
+		</section>
 	</main>
-</body>
-</html>
+{% endblock %}
